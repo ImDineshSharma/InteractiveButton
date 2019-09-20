@@ -7,21 +7,22 @@ import com.google.android.material.snackbar.Snackbar;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.core.view.GestureDetectorCompat;
+import androidx.core.view.GestureDetectorCompat; 
 
-import android.view.GestureDetector;
+import android.view.GestureDetector; // this one too
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Button;
-import android.widget.TextView;
+import android.widget.Button;// line 12 and from line 16-19 are the classes or libraries or packages whatever u call them we r going to need them
+import android.widget.TextView; // in order to use their methods
 import android.view.MotionEvent;
 import android.view.GestureDetector;
 
 
-
+// let's implements these classes
 public class MainActivity extends AppCompatActivity implements GestureDetector.OnGestureListener,
         GestureDetector.OnDoubleTapListener {
+    
     private TextView TextLabel;
     private GestureDetector gestureDetector;
 
@@ -33,10 +34,9 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
         setSupportActionBar(toolbar);
 
         // reference to the TextLabel
-
         TextLabel = (TextView)findViewById(R.id.TextLabel);
         this.gestureDetector = new GestureDetector(this,this);
-        gestureDetector.setOnDoubleTapListener(this);
+        gestureDetector.setOnDoubleTapListener(this); //objects
 
 
         // Click listener
@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
                 new Button.OnLongClickListener(){
                     public boolean onLongClick(View v){
                         TextView TextLabel = (TextView)findViewById(R.id.TextLabel);
-                        TextLabel.setText("OOps you pressemd me too long");
+                        TextLabel.setText("OOps you pressemd me too long"); //make sure u spell it wrong. just kidding
                         return true;
                     }
                 }
@@ -63,6 +63,7 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
 
     }
 //////// GESTURE START ////////
+               // here all the methods, i set them return true if we returned false then the methods will called but won't be handeled
     @Override
     public boolean onSingleTapConfirmed(MotionEvent motionEvent) {
         TextLabel.setText("This is a single TAP ");
@@ -116,7 +117,8 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
     }
     //////// END GESTURES ////////////
 
-
+// this is the last methods of them all, the reason we need this bcoz we want to detect the touhes on screen for our app
+                // here what i want, this will be called called when user touches and will detect the gestures
     @Override
     public boolean onTouchEvent(MotionEvent event) {
         this.gestureDetector.onTouchEvent(event);
